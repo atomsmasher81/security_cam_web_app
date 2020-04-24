@@ -75,10 +75,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'security_cam_web_app.wsgi.application'
 
-# CORS_ORIGIN_WHITELIST = (
-#          'localhost:3000/'
-#      )
+CORS_ORIGIN_WHITELIST = [
+         'https://localhost:3000'
 
+     ]
+CORS_ORIGIN_ALLOW_ALL = True
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 

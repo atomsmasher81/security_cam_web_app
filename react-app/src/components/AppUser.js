@@ -2,18 +2,7 @@ import React from "react";
         import { List, Avatar } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
-const listData = [];
-for (let i = 0; i < 23; i++) {
-  listData.push({
-    href: 'http://ant.design',
-    title: `ant design part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description:
-      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-  });
-}
+
 
 const IconText = ({ icon, text }) => (
   <span>
@@ -22,7 +11,7 @@ const IconText = ({ icon, text }) => (
   </span>
 );
 
-const AppUser = props => {
+const AppUsers = props => {
     return (
 
           <List
@@ -34,7 +23,7 @@ const AppUser = props => {
               },
               pageSize: 3,
             }}
-            dataSource={listData}
+            dataSource={props.data}
             footer={
               <div>
                 <b>ant design</b> footer part
@@ -58,8 +47,8 @@ const AppUser = props => {
               >
                 <List.Item.Meta
                   avatar={<Avatar src={item.avatar} />}
-                  title={<a href={item.href}>{item.title}</a>}
-                  description={item.description}
+                  title={<a href={item.href}>{item.auth_user__username}</a>}
+                  description={item.device_last_used}
                 />
                 {item.content}
               </List.Item>
@@ -68,4 +57,4 @@ const AppUser = props => {
     )
 }
 
-export default AppUser;
+export default AppUsers;
