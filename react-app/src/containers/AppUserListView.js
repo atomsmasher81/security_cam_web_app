@@ -67,4 +67,4 @@ class DetectedPeopleList extends React.Component {
 }
 
 export default AppUserList;
-export {DetectedPeopleList} ;
+// export {DetectedPeopleList} ;

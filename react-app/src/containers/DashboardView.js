@@ -1,9 +1,9 @@
 import React from "react";
 import AppUsers from "../components/AppUser";
 import axios from 'axios';
+import Dashboard from "../components/Dashboard"
 
-
-class Dashboard extends React.Component {
+class DashboardView extends React.Component {
     state = {
         user_data:[]
 
@@ -24,9 +24,9 @@ class Dashboard extends React.Component {
     render() {
         return (
             // <H/>
-            <AppUsers data  = {this.state.user_data}/>
+            <Dashboard data  = {this.state.user_data}/>
         );
     }
 }
 
-export default Dashboard;
+export default DashboardView;
