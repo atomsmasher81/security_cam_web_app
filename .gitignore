@@ -5,7 +5,20 @@ node_modules
 
 # Created by https://www.gitignore.io/api/django
 # Edit at https://www.gitignore.io/?templates=django
+### react ###
+.DS_*
+logs
+**/*.backup.*
+**/*.back.*
 
+react-app/node_modules
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
 ### Django ###
 *.log
 *.pot

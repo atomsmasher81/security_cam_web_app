@@ -5,7 +5,7 @@ from django.db import models
 # Create your models here.
 
 class Customer(models.Model):
-    auth_user = models.ForeignKey(User, on_delete=models.PROTECT)
+    auth_user = models.OneToOneField(User, on_delete=models.PROTECT)
     device_last_used = models.DateTimeField()
 
 
