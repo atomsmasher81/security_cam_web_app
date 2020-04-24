@@ -1,6 +1,8 @@
 import React from "react";
 import AppUsers from "../components/AppUser";
 import axios from 'axios';
+
+
 const listData = [];
 for (let i = 0; i < 23; i++) {
   listData.push({
@@ -39,4 +41,30 @@ class AppUserList extends React.Component {
     }
 }
 
+class DetectedPeopleList extends React.Component {
+    state ={
+        people : []
+    }
+
+    componentDidMount() {
+        axios.get('http://127.0.0.1:8000/backend').then(
+            res => {
+                this.setState({
+                    people: res.data
+                });
+            console.log(res.data)
+
+            }
+        )
+    }
+
+    render() {
+        return (
+            // <H/>
+            <AppUsers data  = {this.state.people}/>
+        );
+    }
+}
+
 export default AppUserList;
+export {DetectedPeopleList} ;

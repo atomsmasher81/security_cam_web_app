@@ -1,6 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-// import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import BaseRouter from "./router";
 import CustomLayout from "./containers/layout";
 import AppUserList from "./containers/AppUserListView";
 
@@ -8,12 +9,13 @@ import AppUserList from "./containers/AppUserListView";
 function App() {
   return (
     <div className="App">
-
+        <Router>
         <CustomLayout>
-             <AppUserList/>
+             {/*<AppUserList/>*/}
+             <BaseRouter/>
         </CustomLayout>
 
-
+        </Router>
     </div>
   );
 }

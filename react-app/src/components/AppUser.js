@@ -1,5 +1,5 @@
 import React from "react";
-        import { List, Avatar } from 'antd';
+import { List, Avatar } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
 
@@ -21,7 +21,7 @@ const AppUsers = props => {
               onChange: page => {
                 console.log(page);
               },
-              pageSize: 3,
+              pageSize: 4,
             }}
             dataSource={props.data}
             footer={
