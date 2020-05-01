@@ -10,11 +10,8 @@ function App() {
   return (
     <div className="App">
         <Router>
-        <CustomLayout>
-             {/*<AppUserList/>*/}
-             <BaseRouter/>
-        </CustomLayout>
 
+            <BaseRouter/>
         </Router>
     </div>
   );

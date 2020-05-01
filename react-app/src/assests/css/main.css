@@ -1,0 +1,20 @@
+.mainbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+.smallbox {
+
+    width: 60vw;
+}
+@media screen  and (min-width: 480px){
+    .smallbox {
+
+    width: 40vw;
+}
+}
+
+
+

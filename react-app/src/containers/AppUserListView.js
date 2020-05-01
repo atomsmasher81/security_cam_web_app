@@ -1,5 +1,5 @@
 import React from "react";
-import AppUsers from "../components/AppUser";
+import TrustuserList from "../components/AppUser";
 import axios from 'axios';
 
 
@@ -36,7 +36,7 @@ class AppUserList extends React.Component {
     render() {
         return (
             // <H/>
-            <AppUsers data  = {this.state.appusers}/>
+            <TrustuserList data  = {this.state.appusers}/>
         );
     }
 }
@@ -61,7 +61,7 @@ class DetectedPeopleList extends React.Component {
     render() {
         return (
             // <H/>
-            <AppUsers data  = {this.state.people}/>
+            <TrustuserList data  = {this.state.people}/>
         );
     }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import AppUsers from "../components/AppUser";
 import axios from 'axios';
-import Dashboard from "../components/Dashboard"
+import Dashboard, {BackgroundImage} from "../components/Dashboard"
 
 class DashboardView extends React.Component {
     state = {
@@ -24,7 +24,10 @@ class DashboardView extends React.Component {
     render() {
         return (
             // <H/>
+
             <Dashboard data  = {this.state.user_data}/>
+
+
         );
     }
 }

@@ -3,7 +3,7 @@ import { Card } from 'antd';
 const { Meta } = Card;
 
 
-const MyProfile = props => {
+const LiveView = props => {
   return (
 
 
@@ -20,5 +20,4 @@ const MyProfile = props => {
   )
 }
 
-
-export default MyProfile;
+export default LiveView;

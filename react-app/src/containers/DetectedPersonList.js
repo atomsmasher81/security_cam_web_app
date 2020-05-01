@@ -35,7 +35,8 @@ class DetectedPersonView extends React.Component {
     render() {
         return (
             // <H/>
-            // console.log(this.state.user_data),
+            console.log(this.state.user_data),
+            console.log(123465798),
             <DetectedPerson data  = {this.state.user_data}/>
         );
     }
