@@ -1,6 +1,6 @@
 import React from "react";
-import People from '../assests/people.png'
-import '../assests/css/main.css'
+import People from '../assests/people.png';
+import '../assests/css/main.css';
 // const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 import { Form, Input, Button, Checkbox } from 'antd';
 
@@ -106,6 +106,7 @@ const Dashboard = props =>{
                     {/*<h1>Wfwf</h1>*/}
 
                     <div className='smallbox'>
+                        <h1 >Login</h1>
                         <LoginForm/>
                     </div>
 

@@ -15,10 +15,23 @@ for (let i = 0; i < 24; i++) {
 
 class DetectedPersonView extends React.Component {
     state = {
-        user_data: listData  //[1,2,3,4,5]
-
+        user_data: listData,  //[1,2,3,4,5]
+        cardcount: 8,
+        listtype: "horizontal"
     }
+    resize() {
+    // let currentHideNav = (window.innerWidth <= 480);
+        console.log(window.innerWidth)
+    if (window.outerWidth <= 480) {
+        this.setState({cardcount: 1});
+        this.setState({listtype: "vertical"});
+    }
+}
     componentDidMount() {
+
+    window.addEventListener("resize", this.resize.bind(this));
+    this.resize();
+
         // axios.get('http://127.0.0.1:8000/backend/').then(
         //     res =>{
         //         this.setState({
@@ -34,10 +47,8 @@ class DetectedPersonView extends React.Component {
     }
     render() {
         return (
-            // <H/>
-            console.log(this.state.user_data),
-            console.log(123465798),
-            <DetectedPerson data  = {this.state.user_data}/>
+
+            <DetectedPerson data  = {this.state.user_data} card_count = {this.state.cardcount} type = {this.state.listtype}/>
         );
     }
 }

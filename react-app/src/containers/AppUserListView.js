@@ -1,6 +1,7 @@
 import React from "react";
 import TrustuserList from "../components/AppUser";
 import axios from 'axios';
+import '../assests/css/main.css';
 
 
 const listData = [];

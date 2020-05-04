@@ -16,5 +16,14 @@
 }
 }
 
+.item {
+    width: 70vw
+}
 
+@media screen  and (min-width: 480px){
+    .item {
+
+    width: 14vw;
+}
+}
 
