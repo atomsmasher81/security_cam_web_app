@@ -2,22 +2,22 @@ import React from "react";
 import { List, Typography, Divider } from 'antd';
 import { Button } from 'antd';
 import Img from '../assests/people.png'
-
+import '../assests/css/trusted_user.css';
 const data = [
-  'Racing car sprays burning fuel into crowd.',
-  'Japanese princess to wed commoner.',
-  'Australian walks 100km after outback crash.',
-  'Man charged over missing wedding girl.',
+  'bhabhi',
+  'ghadiyal',
+  'stuti',
+  'kul',
   'Los Angeles battles huge wildfires.',
 ];
 
 const TrustedPerosn = (props) =>{
     return (
-            <div style={{"margin-right":"25%","margin-left":"25%"}}>
+            <div  className="trust_cover_box" style={{}}>
                 <>
 
 
-                        <div style={{display:"flex","justify-content": "space-between",width:"100%","padding-bottom":"24px"}}>
+                        <div  className="trust_upper_box" style={{display:"flex","justify-content": "space-between",width:"100%","padding-bottom":"24px"}}>
                             <h2>Here are the people that you trust..</h2>
                             <Button type="primary" >Add person</Button>
                         </div>
