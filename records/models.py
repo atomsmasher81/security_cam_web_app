@@ -10,10 +10,10 @@ class Customer(models.Model):
 
 
 class TrustedPeople(models.Model):
-    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     relation = models.CharField(max_length=10)
-    image_file = models.ImageField(null=True)
+    image_file = models.ImageField(null=True,upload_to='Documents')
 
 
 
