@@ -2,17 +2,8 @@ import React from "react";
 import People from '../assests/people.png';
 import '../assests/css/main.css';
 // const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 
-const layout = {
-
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
 const tailLayout = {
   wrapperCol: {
     offset: 8,
@@ -20,68 +11,50 @@ const tailLayout = {
   },
 };
 
-const LoginForm = () => {
-  const onFinish = values => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
-  };
-
-  return (
-    <Form
-      {...layout}
-      name="basic"
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your username!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your password!',
-          },
-        ]}
-      >
-        <Input.Password />
-      </Form.Item>
+class LoginForm extends React.Component {
 
 
+        render() {
 
-      <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
-  );
-};
+            return (
 
 
+                <div>
+                <Form onFinish={this.props.uform}>
+                    <Form.Item
+                        label="Username"
+                        name="username"
+                    
+                    >
+                        <Input/>
+                    </Form.Item>
+                    
+                    <Form.Item
+                        label="Password"
+                        name="password"
+                    
+                    >
+                        <Input.Password/>
+                    </Form.Item>
+
+
+                    <Form.Item {...tailLayout}>
+                        <Button type="primary" htmlType="submit">
+                            Submit
+                        </Button>
+                    </Form.Item>
+                </Form>
+
+                    </div>
+            );
+        };
+
+}
 
 export const BackgroundImage = props => {
     return (
         <div >
-            <img src={People} style={
+            <img src={People} alt="example" style={
                 {
                     backgroundPosition: 'center',
                         width : '100%',
@@ -95,25 +68,29 @@ export const BackgroundImage = props => {
     )
 }
 
-const Dashboard = props =>{
-    return (
-        console.log('here'),
-            <div>
-                <div style={{margin: '7%'}}/>
-                <div className= 'mainbox' >
+class Dashboard extends React.Component {
 
-                    < BackgroundImage/>
-                    {/*<h1>Wfwf</h1>*/}
+    render() {
 
-                    <div className='smallbox'>
-                        <h1 >Login</h1>
-                        <LoginForm/>
+
+        return (
+                <div>
+                    <div style={{margin: '7%'}}/>
+                    <div className='mainbox'>
+
+                        < BackgroundImage/>
+                        {/*<h1>Wfwf</h1>*/}
+
+                        <div className='smallbox'>
+                            <h1>Login</h1>
+                            <LoginForm uform = {this.props.form}/>
+                        </div>
+
+
                     </div>
-
-
                 </div>
-            </div>
-    )
+        )
+    }
 }
 
 export default Dashboard;

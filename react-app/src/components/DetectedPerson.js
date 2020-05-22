@@ -1,18 +1,9 @@
 import React from "react";
 import '../assests/css/main.css';
-// import {Avatar, Card, Col, Row} from 'antd';
-import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
-// import List from "antd/es/list";
 import { List, Card } from 'antd';
-const { Meta } = Card;
+// const { Meta } = Card;
 
 
-const IconText = ({ icon, text }) => (
-  <span>
-    {React.createElement(icon, { style: { marginRight: 8 } })}
-    {text}
-  </span>
-);
 
 const DetectedPerson = props => {
 
@@ -30,7 +21,7 @@ const DetectedPerson = props => {
       pageSize:props.card_count,
     }}
     renderItem={item => (
-        console.log(props.card_count),
+        // console.log(props.card_count)
       <List.Item  >
         <Card className="item"
             title={item.title}

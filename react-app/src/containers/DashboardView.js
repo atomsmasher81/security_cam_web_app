@@ -1,13 +1,28 @@
 import React from "react";
-import AppUsers from "../components/AppUser";
 import axios from 'axios';
-import Dashboard, {BackgroundImage} from "../components/Dashboard"
+import Dashboard from "../components/Dashboard"
+import Redirect from "react-router-dom/es/Redirect";
+
 
 class DashboardView extends React.Component {
-    state = {
-        user_data:[]
+    constructor(props) {
+        super(props);
 
+        this.HandleFormSubmit = this.HandleFormSubmit.bind(this)
     }
+    state = {
+            username: "",
+            password: "",
+            redirectToDashboard: false,
+            user_data:[]
+    };
+
+    HandleFormSubmit = values =>{
+        console.log('hey,i have been waiting for you!');
+        console.log(values.username,values.password)
+        this.setState({redirectToDashboard: true})
+    }
+
     componentDidMount() {
         axios.get('http://127.0.0.1:8000/backend/').then(
             res =>{
@@ -21,15 +36,55 @@ class DashboardView extends React.Component {
             }
         )
     }
+
+
     render() {
+        const redirectToDashboard = this.state.redirectToDashboard;
+        if (redirectToDashboard === true) {
+            return <Redirect to="/manage_person" />
+        }
         return (
             // <H/>
 
-            <Dashboard data  = {this.state.user_data}/>
+
+            <Dashboard data  = {this.state.user_data} form = {this.HandleFormSubmit} />
 
 
         );
     }
 }
+// class DashboardView extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       username: '',
+//       age: null,
+//     };
+//   }
+//   myChangeHandler = (event) => {
+//     let nam = event.target.name;
+//     let val = event.target.value;
+//     this.setState({[nam]: val});
+//   }
+//   render() {
+//     return (
+//       <form>
+//       <h1>Hello {this.state.username} {this.state.age}</h1>
+//       <p>Enter your name:</p>
+//       <input
+//         type='text'
+//         name='username'
+//         onChange={this.myChangeHandler}
+//       />
+//       <p>Enter your age:</p>
+//       <input
+//         type='text'
+//         name='age'
+//         onChange={this.myChangeHandler}
+//       />
+//       </form>
+//     );
+//   }
+// }
 
 export default DashboardView;

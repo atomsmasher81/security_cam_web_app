@@ -5,7 +5,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from records.api import get_trusted_people, add_trusted_people, get_detected_people, login
+from records.api import get_trusted_people, add_trusted_people, get_detected_people, signup
 from records.models import Customer, TrustedPeople
 
 filter_type = {}
@@ -26,11 +26,12 @@ class TrustedPeopleView(APIView):
         return add_trusted_people(request)
 
 
-class DectectedPeopleView(APIView):
+class DetectedPeopleView(APIView):
     def get(self, request):
         return get_detected_people(request)
 
 
-class LoginView(APIView):
+
+class SignUpView(APIView):
     def post(self,request):
-        return login(request)
+        return signup(request)
