@@ -5,6 +5,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from face_recognizer.video_stream import go_live
 from records.api import get_trusted_people, add_trusted_people, get_detected_people, signup
 from records.models import Customer, TrustedPeople
 
@@ -31,7 +32,11 @@ class DetectedPeopleView(APIView):
         return get_detected_people(request)
 
 
-
 class SignUpView(APIView):
-    def post(self,request):
+    def post(self, request):
         return signup(request)
+
+
+class GoLiveView(APIView):
+    def get(self, request):
+        return go_live(1) #request.user.id

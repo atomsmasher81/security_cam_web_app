@@ -13,11 +13,14 @@ class AppUserList extends React.Component {
     }
 
     componentDidMount() {
-
+                console.log('res.data.data');
         axios.get('http://127.0.0.1:8000/api/trusted_people/').then(
             res => {
+                console.log('res.data.data');
+                console.log(res.data.images);
                 this.setState({
-                    appusers: res.data
+                    appusers: res.data.data,
+                    temp_image:res.data.images
                 });
 
 
@@ -27,9 +30,10 @@ class AppUserList extends React.Component {
             console.log(this.state.appusers)
             var i;
             var newstate = [];
-            for (i = 0; i < this.state.appusers.length; i++) {
+            for (i = 0; i < this.state.temp_image.length; i++) {
 
-                var doc_url = 'http://127.0.0.1:8000/media/' + this.state.appusers[i]['image_file']
+                var doc_url = 'http://127.0.0.1:8000/docs'+ '/trusted_people/' +
+                    this.state.appusers[0]['user_id'] +'/'  + this.state.temp_image[i] + '/1.jpeg'  // +'/kartik_01/'
                 newstate.push(
                     {
                         'name':this.state.appusers[i]['name'],
@@ -43,7 +47,7 @@ class AppUserList extends React.Component {
                     updated_user :newstate
                 }
             )
-                console.log("dsdsdsdsds")
+                // console.log("dsdsdsdsds")
                 console.log(this.state.updated_user)
             //     console.log(doc_url)
             //     axios.get(doc_url).then(

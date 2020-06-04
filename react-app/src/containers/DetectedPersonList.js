@@ -1,5 +1,7 @@
 import React from "react";
 import DetectedPerson from "../components/DetectedPerson";
+import axios from 'axios';
+// import {useAuth} from "../context/auth";
 
 
 var listData = [];
@@ -16,7 +18,9 @@ class DetectedPersonView extends React.Component {
     state = {
         user_data: listData,  //[1,2,3,4,5]
         cardcount: 8,
-        listtype: "horizontal"
+        listtype: "horizontal",
+        user_id: 0,
+        image_data:[]
     }
     resize() {
     // let currentHideNav = (window.innerWidth <= 480);
@@ -27,27 +31,56 @@ class DetectedPersonView extends React.Component {
     }
 }
     componentDidMount() {
+        // console.log(useAuth())
+        window.addEventListener("resize", this.resize.bind(this));
+        this.resize();
 
-    window.addEventListener("resize", this.resize.bind(this));
-    this.resize();
+        axios.get('http://127.0.0.1:8000/api/detected_people/').then(
+            res => {
+                this.setState({
 
-        // axios.get('http://127.0.0.1:8000/backend/').then(
-        //     res =>{
-        //         this.setState({
-        //
-        //             user_date :res.data
-        //             }
-        //         );
-        //
-        //         console.log(res)
-        //     }
-        // )
-        this.setState([{user_data: listData}])
+                        user_data: res.data.data,
+                        user_id: res.data.user_id
+                    }
+                );
+
+                console.log(res)
+            }
+        ).then(
+            e => {
+                console.log(this.state.temp_image);
+                var i;
+                var newstate = [];
+                for (i = 0; i < this.state.user_data.length; i++) {
+
+                    var doc_url = 'http://127.0.0.1:8000/docs' + '/postprocessed/' +
+                        this.state.user_id + '/' + this.state.user_data[i][0]  // +'/kartik_01/'
+
+                    var t = new Date(this.state.user_data[i][1] * 1000);
+                    var formatted_time = ('0' + t.getHours()).slice(-2) + ':' + ('0' + t.getMinutes()).slice(-2) + ':' + t.getSeconds() +
+                        ' - ' + t.getDate() + '/' + t.getMonth() + '/' + t.getFullYear();
+
+                    newstate.push(
+                        {
+                            'image_url': doc_url,
+                            'timestamp': formatted_time
+                        },
+                    )
+                    console.log(newstate)
+                    this.setState(
+                        {
+                            image_data: newstate,
+                        }
+                    )
+
+                }
+            });
     }
     render() {
+
         return (
 
-            <DetectedPerson data  = {this.state.user_data} card_count = {this.state.cardcount} type = {this.state.listtype}/>
+            <DetectedPerson data  = {this.state.image_data} card_count = {this.state.cardcount} type = {this.state.listtype}/>
         );
     }
 }

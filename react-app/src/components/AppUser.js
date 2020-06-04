@@ -27,8 +27,8 @@ const TrustedPerosn = (props) =>{
 
                           <div style={{height:"100px"  ,width:'100%',padding:"2%"}}>
                               <div style={{display:"flex","justify-content": "space-between"}}>
-                                  <h1 style={{    display: "flex","align-items": "center"}}>{item.id}</h1>
-                                  <h1 style={{    display: "flex","align-items": "center"}}>{item.name}</h1>
+                                  {/*<h1 style={{    display: "flex","align-items": "center"}}>{item.id}</h1>*/}
+                                  <h1 style={{    display: "flex","align-items": "center","width":"30px"}}>{item.name}</h1>
                                   <h3 style={{    display: "flex","align-items": "center"}}>{item.relation}</h3>
                                                     <img src= {item.image_file} style={{width:"100px",height:"100px" ,}} alt="hmm"/>
                                 </div>

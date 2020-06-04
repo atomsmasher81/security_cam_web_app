@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import Dashboard from "../components/Dashboard"
 import Redirect from "react-router-dom/es/Redirect";
+// import {useAuth} from "../context/auth";
 
 
 class DashboardView extends React.Component {
@@ -17,9 +18,27 @@ class DashboardView extends React.Component {
             user_data:[]
     };
 
+
+
     HandleFormSubmit = values =>{
+        // const { setAuthTokens } = useAuth();
         console.log('hey,i have been waiting for you!');
         console.log(values.username,values.password)
+
+        axios.post("http://loaclhost/api/token", {
+          "username":values.username,
+          "password": values.password
+        }).then(result => {
+          if (result.status === 200) {
+            // setAuthTokens(result.data);
+              console.log(result.data)
+          } else {
+            console.log('result')
+            console.log(result)
+          }
+        })
+
+
         this.setState({redirectToDashboard: true})
     }
 

@@ -15,7 +15,7 @@ class TrustedPeople(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     relation = models.CharField(max_length=10)
-    image_file = models.ImageField(null=True,upload_to='Documents')
+    # image_file = models.ImageField(null=True,upload_to='Documents')
 
 
 

@@ -1,0 +1,13 @@
+.trust_upper_box {
+    display: flex;
+    flex-direction: column;
+}
+@media screen  and (min-width: 480px){
+    .trust_cover_box {
+        margin-right:25%;
+        margin-left:25%;
+    }
+    .trust_upper_box{
+        flex-direction: row;
+    }
+}

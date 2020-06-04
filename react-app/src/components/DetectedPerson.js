@@ -9,7 +9,7 @@ const DetectedPerson = props => {
 
 
  return (
-
+  //{ console.log(props.data) }
   <List
     itemLayout={props.listtype }
     grid={{ gutter: 16, column: 5 }}
@@ -21,17 +21,19 @@ const DetectedPerson = props => {
       pageSize:props.card_count,
     }}
     renderItem={item => (
-        // console.log(props.card_count)
+
       <List.Item  >
         <Card className="item"
-            title={item.title}
+            title=  {item.timestamp}
             hoverable
-
-        ><img alt="example" src={item.href} style={{"height": "100%", "width": "100%", "object-fit": "contain"}}/></Card>
+            style={{ height:'20vh',width:'25vw'}}
+        ><img alt="example" src={item.image_url} /></Card>
+          {/*<h1>{item}</h1>*/}
       </List.Item>
+
     )}
   />
-
+    //style={{"height": "100%", "width": "100%", "object-fit": "contain"}}
 
     )
 }
