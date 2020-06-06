@@ -14,7 +14,7 @@ filter_type = {}
 
 class GetCustomer(APIView):
     def get(self, request):
-        a = Customer.objects.filter(**filter_type).values('auth_user__username', 'device_last_used')
+        a = Customer.objects.filter(**filter_type).values('user__username', 'device_last_used')
         return Response(a)
 
 
